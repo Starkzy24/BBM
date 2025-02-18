@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Bank Management System - Admin Login</title>
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url("./assets/images/hero-bg.png");
+        background-size: cover;
+        backdrop-filter: blur(4px);
+      }
+      h1 {
+        text-align: center;
+        font-weight: bold;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      form {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      .header .btn { display: inline-block; }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-block: 16px;
+        z-index: 4;
+        background-color: var(--rich-black-fogra-29);
+      }
+
+      .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-open-btn,
+      .nav-close-btn,
+      .btn {
+        color: var(--white);
+        font-size: 2rem;
+        padding: 10px 20px;
+        background-color: var(--midnight-green);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .nav-open-btn:hover,
+      .nav-close-btn:hover,
+      .btn:hover {
+        background-color: var(--dark-midnight-green);
+      }
+
+      .navbar,
+      .overlay {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .navbar {
+        right: -300px;
+        max-width: 300px;
+        background-color: var(--rich-black-fogra-29);
+        z-index: 3;
+        transition: 0.25s var(--cubic-in);
+        visibility: hidden;
+      }
+
+      .navbar.active {
+        transform: translateX(-300px);
+        visibility: visible;
+        transition: 0.5s var(--cubic-out);
+      }
+
+      .navbar-top {
+        position: relative;
+        padding-inline: 25px;
+        padding-block: 55px 100px;
+      }
+
+      .navbar-list {
+        margin-block-end: 30px;
+        border-block-end: 1px solid var(--white_a10);
+      }
+
+      .navbar-item { border-block-start: 1px solid var(--white_a10); }
+
+      .navbar-link {
+        color: var(--white);
+        text-transform: uppercase;
+        padding: 10px 24px;
+      }
+
+      .social-list {
+        justify-content: center;
+        gap: 20px;
+        color: var(--white);
+        font-size: 1.8rem;
+      }
+
+      .overlay {
+        right: -100%;
+        background-color: var(--black);
+        opacity: 0.3;
+        visibility: hidden;
+        transition: var(--transition-2);
+        z-index: 2;
+      }
+
+      .overlay.active {
+        transform: translateX(-100%);
+        visibility: visible;
+      }
+
+      
+
+      
+    </style>
+  </head>
+  <body
+    class="section hero"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 5px;
+    "
+  >
+
+  <!-- 
+  - #HEADER
+-->
+
+<header class="header" data-header>
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img
+        src="./assets/images/logo.svg"
+        width="136"
+        height="46"
+        alt="RaktMitra home"
+      />
+    </a>
+
+    <nav class="navbar" data-navbar>
+      <div class="navbar-top">
+        <a href="#" class="logo">
+          <img
+            src="./assets/images/logo.svg"
+            width="136"
+            height="46"
+            alt="RaktMitra home"
+          />
+        </a>
+
+        <button
+          class="nav-close-btn"
+          aria-label="clsoe menu"
+          data-nav-toggler
+        >
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="navbar-list">
+        <!-- <li class="navbar-item">
+      <a href="#" class="navbar-link title-md">Home</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="#" class="navbar-link title-md">Doctors</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="#" class="navbar-link title-md">Services</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="#" class="navbar-link title-md">Blog</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="#" class="navbar-link title-md">Contact</a>
+    </li> -->
+      </ul>
+
+      <ul class="social-list">
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-pinterest"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    <a href="register.html" class="btn has-before title-md">Register</a>
+
+    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    <a href="admin.html" class="btn has-before title-md">Admin Login</a>
+
+    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    <a href="login.html" class="btn has-before title-md">User Login</a>
+
+    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    <a href="donated_blood.html" class="btn has-before title-md"
+      >Check Availablility</a
+    >
+
+    <div class="overlay" data-nav-toggler data-overlay></div>
+  </div>
+</header>
+
+
+    <h1 style="color: white; margin-top: 170px" class="headline-md hero-title">
+      Admin Login
+    </h1>
+    <form id="adminLoginForm">
+      <label for="adminAddress">Admin Address:</label>
+      <input
+        style="border: 1px solid black"
+        type="password"
+        id="adminAddress"
+        required
+      />
+
+      <button
+        class="btn has-before title-lg"
+        style="background-color: var(--midnight-green); justify-content: center"
+        type="button"
+        onclick="adminLogin()"
+      >
+        Login
+      </button>
+    </form>
+
+    <script src="app.js"></script>
+  </body>
+</html>
